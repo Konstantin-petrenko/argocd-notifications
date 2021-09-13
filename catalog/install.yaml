@@ -523,6 +523,13 @@ data:
       send:
       - app-sync-succeeded
       when: app.status.operationState.phase in ['Succeeded']
+  subscriptions: |
+    - recipients:
+      - slack:argo-notifications
+  service.slack: |
+    token: $slack-token
+    username: Argo CD # optional username
+    icon: https://argocd-notifications.readthedocs.io/en/stable/assets/logo.png # optional icon for the message
 kind: ConfigMap
 metadata:
   creationTimestamp: null
